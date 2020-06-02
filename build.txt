@@ -1,0 +1,3 @@
+displayName = Terra's Fuckery
+author = Terra
+version = 0.1
