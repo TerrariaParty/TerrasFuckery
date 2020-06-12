@@ -3,12 +3,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using TerrasFuckery.Projectiles;
+using TerrasFuckery.Projectiles.Storm;
 using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace TerrasFuckery.Items
+namespace TerrasFuckery.Items.Storm
 {
     public class StormCoreCannon : ModItem
     {

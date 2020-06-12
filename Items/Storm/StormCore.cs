@@ -3,7 +3,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace TerrasFuckery.Items
+namespace TerrasFuckery.Items.Storm
 {
     public class StormCore : ModItem
     {

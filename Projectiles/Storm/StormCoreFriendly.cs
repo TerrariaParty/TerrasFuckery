@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace TerrasFuckery.Projectiles
+namespace TerrasFuckery.Projectiles.Storm
 {
 	public class StormCoreFriendly : ModProjectile
 	{
@@ -42,7 +42,6 @@ namespace TerrasFuckery.Projectiles
 		}
 		public override void Kill(int timeLeft)
 		{
-			Projectile.NewProjectile(projectile.Center, new Vector2(0, 0), ProjectileType<StormCoreExplosion>(), 200, 3f);
 			Main.PlaySound(SoundID.Item15, projectile.position);
 			for (int i = 0; i < 50; i++)
 			{
