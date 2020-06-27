@@ -3,11 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace TerrasFuckery.Projectiles.Storm
 {
-	public class StormCoreFriendly : ModProjectile
+    public class StormCoreFriendly : ModProjectile
 	{
 		public override void SetStaticDefaults()
 		{
@@ -78,7 +77,7 @@ namespace TerrasFuckery.Projectiles.Storm
 		}
 		public override void PostDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
-			Texture2D texture = mod.GetTexture("Projectiles/StormCoreFriendly_Glow");
+			Texture2D texture = mod.GetTexture("Projectiles/Storm/StormCoreFriendly_Glow");
 			spriteBatch.Draw
 			(
 				texture,

@@ -1,10 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Mono.Cecil.Pdb;
-using System.Data.SqlTypes;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TerrasFuckery.Tiles;
+using TerrasFuckery.Projectiles.Dirt;
 using static Terraria.ModLoader.ModContent;
 
 namespace TerrasFuckery.Items.Dirt
@@ -13,11 +11,11 @@ namespace TerrasFuckery.Items.Dirt
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("'Not a legend of Maxx reference'");
+            Tooltip.SetDefault("Spins a dirty blade around you\nRight click to thrust forward");
         }
         public override void SetDefaults()
         {
-            item.damage = 14;
+            item.damage = 15;
             item.width = 32;
             item.height = 32;
             item.useTime = 20;
@@ -29,39 +27,47 @@ namespace TerrasFuckery.Items.Dirt
             item.knockBack = 2.5f;
             item.autoReuse = true;
             item.melee = true;
-            item.useStyle = ItemUseStyleID.SwingThrow;
+            item.noMelee = true;
+            item.noUseGraphic = true;
+            item.useStyle = ItemUseStyleID.HoldingOut;
+            item.shoot = ProjectileType<DirtySlicerProjectile>();
         }
-        public override void MeleeEffects(Player player, Rectangle hitbox)
+        public override bool AltFunctionUse(Player player)
         {
-            if (Main.rand.NextBool(3))
-            {
-                Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Dirt);
-            }
-        }
-        string text;
-        int randomNum;
-        public override bool UseItem(Player player)
-        {
-            randomNum = Main.rand.Next(4);
-            switch(randomNum)
-            {
-                default:
-                    break;
-                case 1:
-                    text = "Engarde!";
-                    break;
-                case 2:
-                    text = "Have at thee!";
-                    break;
-                case 3:
-                    text = "Wait, why am I using a dirt sword?";
-                    break;
-            }
-            if(Main.rand.Next(6) == 0)
-            {
-                CombatText.NewText(player.getRect(), new Color(150, 35, 5), text);
-            }
             return true;
+        }
+        public override bool CanUseItem(Player player)
+        {
+            if (player.altFunctionUse == 2)
+            {
+                item.damage = 15;
+                item.useTime = 20;
+                item.useAnimation = 20;
+                item.rare = ItemRarityID.Green;
+                item.UseSound = SoundID.Item1;
+                item.autoReuse = true;
+                item.melee = true;
+                item.noMelee = true;
+                item.noUseGraphic = true;
+                item.useStyle = ItemUseStyleID.HoldingOut;
+                item.shoot = ProjectileType<DirtySlicerProjectileAlt>();
+            }
+            else
+            {
+                item.damage = 14;
+                item.useTime = 20;
+                item.useAnimation = 20;
+                item.rare = ItemRarityID.Green;
+                item.UseSound = SoundID.Item1;
+                item.autoReuse = true;
+                item.melee = true;
+                item.noMelee = true;
+                item.noUseGraphic = true;
+                item.useStyle = ItemUseStyleID.HoldingOut;
+                item.shoot = ProjectileType<DirtySlicerProjectile>();
+                item.channel = true;
+            }
+            return player.ownedProjectileCounts[item.shoot] < 1;
         }
         public override void AddRecipes()
         {
