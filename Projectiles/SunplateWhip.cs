@@ -4,7 +4,7 @@
     {
         public override void SafeSetDefaults()
         {
-            summonTagDamage = 10;     
+            summonTagDamage = 3;     
             rangeMult = 0.5f;
         }
     }

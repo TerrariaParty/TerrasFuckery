@@ -9,7 +9,7 @@ namespace TerrasFuckery.Items
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("'Strike with the power of the sky and sun'" + "\n10 summon tag damage" + "\nYour summons will focus struck enemies");
+            Tooltip.SetDefault("'Strike with the power of the sky and sun'" + "\n3 summon tag damage" + "\nYour summons will focus struck enemies");
         }
         public override void SetDefaults()
         {
@@ -27,7 +27,7 @@ namespace TerrasFuckery.Items
             item.autoReuse = false;
             item.damage = 14;
             item.knockBack = 2;
-            item.shootSpeed = 10;
+            item.shootSpeed = 7;
             item.rare = ItemRarityID.Blue;
         }
         public override void AddRecipes()

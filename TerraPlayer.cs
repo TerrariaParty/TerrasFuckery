@@ -20,6 +20,7 @@ namespace TerrasFuckery
         int StormCoreLifeTimer = 0;
         public int summonTagDamage;
         public int summonTagCrit;
+        public bool MLWhipBuff;
         public override void ResetEffects()
         {
             ResetVariables();
@@ -35,6 +36,9 @@ namespace TerrasFuckery
             stormKnockback = 0f;
             stormCrit = 0;
             cubeBasic = false;
+            summonTagCrit = 0;
+            summonTagDamage = 0;
+            MLWhipBuff = false;
         }
         public override void PostUpdateMiscEffects()
         {
