@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+//Thanks to ssobedevad 40#7846 for the code
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
